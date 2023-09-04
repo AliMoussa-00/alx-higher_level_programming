@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-str = "Holberton school"
+str = "Holberton School"
 print(str * 3 + "\n" + str[:9])
