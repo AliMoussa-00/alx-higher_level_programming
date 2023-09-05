@@ -2,4 +2,4 @@
 
 for ch in range(ord('a'), ord('z') + 1):
     if ch != ord('q') and ch != ord('e'):
-        print(f"{ch:c}", end="")
+        print("{}".format(chr(ch)), end="")
