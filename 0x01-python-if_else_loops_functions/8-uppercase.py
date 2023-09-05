@@ -3,9 +3,8 @@
 def uppercase(str):
 
     for c in str:
-        if ord(c) in range(ord('a'), ord('z') + 1):
-            print("{}".format(chr(ord(c) - ord(' '))), end="")
-        else:
-            print("{}".format(c), end="")
+        is_l = ord(c) in range(ord('a'), ord('z') + 1)
+
+        print("{}".format(chr(ord(c) - ord(' ')) if is_l else c), end="")
     else:
         print()
