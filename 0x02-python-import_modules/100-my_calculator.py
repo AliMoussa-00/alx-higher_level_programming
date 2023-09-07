@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ops = {"+": add, "-": sub, "*": mul, "/": div}
 
     if c not in list(ops.keys()):
-        print("Unkown operator. Available operators: +, -, * and /")
+        print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
 
     print("{} {} {} = {}".format(a, c, b, ops[c](a, b)))
