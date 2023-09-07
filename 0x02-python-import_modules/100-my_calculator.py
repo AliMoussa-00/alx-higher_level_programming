@@ -10,21 +10,12 @@ if __name__ == "__main__":
 
     a = int(argv[1])
     b = int(argv[3])
+    c = argv[2]
 
-    match argv[2]:
-        case '+':
-            result = add(a, b)
-        case '-':
-            result = sub(a, b)
-        case '*':
-            result = mul(a, b)
-        case '/':
-            result = div(a, b)
-        case _:
-            result = "NULL"
+    ops = {"+": add, "-": sub, "*": mul, "/": div}
 
-    if result == "NULL":
+    if c not in list(ops.keys()):
         print("Unkown operator. Available operators: +, -, * and /")
         exit(1)
 
-    print("{} {} {} = {}".format(a, argv[2], b, result))
+    print("{} {} {} = {}".format(a, c, b, ops[c](a, b)))
