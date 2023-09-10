@@ -1,25 +1,6 @@
 #include "lists.h"
 
 /**
- * dup_list - duplicate a linked list.
- * @head: addredd to the head of the list.
- * Return: a new linked list.
- */
-listint_t *dup_list(listint_t *head)
-{
-	listint_t *new = NULL;
-
-	while (head)
-	{
-		if (!add_nodeint_end(&new, head->n))
-			return (NULL);
-		head = head->next;
-	}
-
-	return (new);
-}
-
-/**
  * reverse_list - reverse a linked list.
  * @head: head of the linked list.
  * Return: void.
@@ -51,9 +32,9 @@ void reverse_list(listint_t **head)
  * @head: head of the list.
  * Return: integer.
  */
-size_t size_list(listint_t *head)
+int size_list(listint_t *head)
 {
-	size_t size = 0;
+	int size = 0;
 
 	while (head)
 	{
@@ -70,27 +51,37 @@ size_t size_list(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *rev, *tmp;
-	size_t i = 0;
+	listint_t *first, *second;
+	int i = 0, size, m, div;
 
 	if (!*head)
 		return (1);
 
-	tmp = *head;
+	first = *head;
+	second = *head;
 
-	rev = dup_list(*head);
+	size = size_list(*head);
+	div = size / 2;
+	if (size % 2 == 0)
+		m = div;
+	else
+		m = div + 1;
 
-	reverse_list(&rev);
-
-	while (tmp && rev && i < (size_list(*head) / 2))
+	while (second && i < m)
 	{
-		if (tmp->n != rev->n)
-			return (0);
-		tmp = tmp->next;
-		rev = rev->next;
 		i++;
+		second = second->next;
 	}
 
-	free_listint(rev);
+	reverse_list(&second);
+
+	while (second)
+	{
+		if (first->n != second->n)
+			return (0);
+		first = first->next;
+		second = second->next;
+	}
+
 	return (1);
 }
