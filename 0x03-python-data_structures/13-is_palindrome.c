@@ -47,6 +47,23 @@ void reverse_list(listint_t **head)
 }
 
 /**
+ * size_list - get the size of the list.
+ * @head: head of the list.
+ * Return: integer.
+ */
+size_t size_list(listint_t *head)
+{
+	size_t size = 0;
+
+	while (head)
+	{
+		size++;
+		head = head->next;
+	}
+	return (size);
+}
+
+/**
  * is_palindrome - check if a linked list is palindrom.
  * @head: heade of the linked list.
  * Return: return 1 if it is palindrom else 0.
@@ -54,6 +71,7 @@ void reverse_list(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *rev, *tmp;
+	size_t i = 0;
 
 	if (!*head)
 		return (1);
@@ -64,12 +82,13 @@ int is_palindrome(listint_t **head)
 
 	reverse_list(&rev);
 
-	while (tmp && rev)
+	while (tmp && rev && i < (size_list(*head) / 2))
 	{
 		if (tmp->n != rev->n)
 			return (0);
 		tmp = tmp->next;
 		rev = rev->next;
+		i++;
 	}
 
 	free_listint(rev);

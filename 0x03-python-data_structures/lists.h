@@ -23,6 +23,7 @@ void free_listint(listint_t *head);
 
 listint_t *dup_list(listint_t *head);
 void reverse_list(listint_t **head);
+size_t size_list(listint_t *head);
 
 int is_palindrome(listint_t **head);
 
