@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 def roman_to_int(roman_string):
 
     if roman_string == 'None' or not isinstance(roman_string, str):
@@ -26,7 +25,9 @@ def roman_to_int(roman_string):
         roman_int = sum(string_dict.values())
 
     elif max(string_dict, key=string_dict.get) == roman_string[-1]:
-        roman_int = sum(string_dict.values())
+        roman_int = list(reversed(string_dict.values()))[0]
+        for n in list(reversed(string_dict.values()))[1:]:
+            roman_int -= n
 
     else:
         roman_int = 0
