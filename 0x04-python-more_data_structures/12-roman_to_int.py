@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-# from functools import reduce
-
 
 def roman_to_int(roman_string):
 
@@ -29,7 +27,6 @@ def roman_to_int(roman_string):
 
     elif max(string_dict, key=string_dict.get) == roman_string[-1]:
         roman_int = sum(string_dict.values())
-        # roman_int = reduce(lambda x, y: x - y, reversed(string_dict.values()))
 
     else:
         roman_int = 0
