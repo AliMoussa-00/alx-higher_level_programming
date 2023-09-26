@@ -79,12 +79,12 @@ class SinglyLinkedList:
         """override the __str__ for print to work"""
 
         current = self.__head
-        string = ""
+        string = []
 
         if current:
             while current:
-                string += f"{current.data}" + "\n"
+                string.append(str(current.data))
 
                 current = current.next_node
 
-        return string
+        return ("\n".join(string))
