@@ -48,6 +48,10 @@ class SinglyLinkedList:
     """Initialize the Singly Linked List class"""
 
     def __init__(self):
+        """Insert a new Node to the SinglyLinkedList.
+            The node is inserted into the list at the correct
+            ordered numerical position.
+        """
         self.__head = None
 
     def sorted_insert(self, value):
@@ -77,9 +81,10 @@ class SinglyLinkedList:
         current = self.__head
         string = ""
 
-        while current:
-            string += f"{current.data}" + "\n"
+        if current:
+            while current:
+                string += f"{current.data}" + "\n"
 
-            current = current.next_node
+                current = current.next_node
 
         return string
