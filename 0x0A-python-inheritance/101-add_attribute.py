@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defining the module of '101-add_attribute'"""
 
+
 def add_attribute(obj, name, value):
     """Implementing a function that adds an attr to an objet"""
 

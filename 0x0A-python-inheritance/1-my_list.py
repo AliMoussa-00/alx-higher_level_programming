@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defining the '1-my_list' module"""
 
+
 class MyList(list):
     """Defining the MyList class"""
 
