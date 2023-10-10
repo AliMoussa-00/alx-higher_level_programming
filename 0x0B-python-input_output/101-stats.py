@@ -15,18 +15,19 @@ if __name__ == "__main__":
 
     from sys import stdin
 
-    size = 0
-    status_codes = {}
     valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
-    count = 0
+
+    size = 0
+    codes = {}
+    line_counter = 0
 
     try:
         for line in stdin:
-            if count == 10:
-                print_stats(size, status_codes)
-                count = 1
+            if line_counter == 10:
+                print_stats(size, codes)
+                line_counter = 1
             else:
-                count += 1
+                line_counter += 1
 
             line = line.split()
 
@@ -36,16 +37,17 @@ if __name__ == "__main__":
                 pass
 
             try:
-                if line[-2] in valid_codes:
-                    if status_codes.get(line[-2], -1) == -1:
-                        status_codes[line[-2]] = 1
+                code = line[-2]
+                if code in valid_codes:
+                    if codes.get(code, -1) == -1:
+                        codes[code] = 1
                     else:
-                        status_codes[line[-2]] += 1
+                        codes[code] += 1
             except IndexError:
                 pass
 
-        print_stats(size, status_codes)
+        print_stats(size, codes)
 
     except KeyboardInterrupt:
-        print_stats(size, status_codes)
+        print_stats(size, codes)
         raise
