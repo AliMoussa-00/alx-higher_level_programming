@@ -14,7 +14,7 @@ def print_stats(size, stats):
 if __name__ == "__main__":
 
     from sys import stdin
-    
+
     size = 0
     status_codes = {}
     valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
