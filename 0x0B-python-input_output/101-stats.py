@@ -8,7 +8,7 @@ def print_stats(size, stats):
     print(f"File size: {size}")
 
     print(stats)
-    for k, v in stats.items():
+    for k, v in sorted(stats.items()):
         print(f"{k}: {v}")
 
 
