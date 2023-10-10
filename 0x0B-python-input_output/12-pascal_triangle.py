@@ -7,16 +7,15 @@ def pascal_triangle(n):
     representing the Pascal’s triangle of n
     """
 
+    if n <= 0:
+        return []
+
     tri = [[1]]
-
-    for i in range(n):
+    while len(tri) != n:
         t = tri[-1]
-        m = [1]
-
-        for j in range(len(t) - 1):
-            m.append(t[j] + t[j + 1])
-
-        m.append(1)
-        tri.append(m)
-
+        tmp = [1]
+        for i in range(len(tri) - 1):
+            tmp.append(t[i] + t[i + 1])
+        tmp.append(1)
+        tri.append(tmp)
     return tri
