@@ -9,4 +9,4 @@ while (argv[i] !== undefined) {
   i++;
 }
 
-if (i === 2) { console.log('No argument'); }
+if (i <= 2) { console.log('No argument'); }
