@@ -4,7 +4,7 @@ const argv = process.argv;
 
 let i = 0;
 
-while (argv[i] !== undefined) {
+while (typeof argv[i] !== 'undefined') {
   if (i > 1) { console.log(argv[i]); }
   i++;
 }
