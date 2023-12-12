@@ -4,15 +4,8 @@ const dict = require('./101-data').dict;
 
 const sorted = {};
 
-Object.entries(dict).forEach((arr) => {
-  let tmp = [];
-
-  if (Object.hasOwn(sorted, arr[1])) {
-    tmp = sorted[arr[1]];
-  }
-
-  tmp.push(arr[0]);
-  sorted[arr[1]] = tmp;
+Object.getOwnPropertyNames(dict).forEach(c => {
+  if (sorted[dict[c]] === undefined) { sorted[dict[c]] = [c]; } else { sorted[dict[c]].push(c); }
 });
 
 console.log(sorted);
