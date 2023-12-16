@@ -21,13 +21,13 @@ def get_state_with_city(user, pw, db_name):
         engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                                .format(user, pw, db_name), pool_pre_ping=True)
 
+        Base.metadata.create_all(eng)
         Session = sessionmaker(bind=engine)
         session = Session()
 
         try:
 
-            res = session.query(State).options(joinedload(State.cities))
-            .order_by(State.id, City.id).all()
+            res = session.query(State).all()
 
             if res:
 
