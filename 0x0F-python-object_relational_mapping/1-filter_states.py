@@ -15,26 +15,20 @@ def getData_from_mysql(user, pw, database):
 
     sql_query = "SELECT id, name FROM states WHERE name like 'N%' ORDER BY id;"
 
-    try:
-        db = MySQLdb.connect(host=host, port=3306,
-                             user=user, password=pw, db=database)
-        cursor = db.cursor()
+    db = MySQLdb.connect(
+            host=host, port=3306, user=user, password=pw, db=database)
 
-        try:
-            cursor.execute(sql_query)
+    cursor = db.cursor()
 
-            results = cursor.fetchall()
+    cursor.execute(sql_query)
 
-            for row in results:
-                print(row)
+    results = cursor.fetchall()
 
-        except Exception as e:
-            print(e)
+    for row in results:
+        print(row)
 
-        cursor.close()
-        db.close()
-    except Exception as e:
-        print(e)
+    cursor.close()
+    db.close()
 
 
 if __name__ == "__main__":
