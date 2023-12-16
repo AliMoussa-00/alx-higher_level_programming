@@ -35,7 +35,7 @@ def get_state_with_city(user, pw, db_name):
                     print(f"{state.id}: {state.name}")
 
                     for city in state.cities:
-                        print(f"\t{city.id}: {city.name}")
+                        print(f"    {city.id}: {city.name}")
 
         except SQLAlchemyError as e:
             print(e)
