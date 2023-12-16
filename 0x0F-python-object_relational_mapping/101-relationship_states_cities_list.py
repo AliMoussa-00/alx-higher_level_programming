@@ -25,7 +25,7 @@ def get_state_with_city(user, pw, db_name):
 
         try:
 
-            res = session.query(State).outerjoin(City).all()
+            res = session.query(State).all()
 
             if res:
 
