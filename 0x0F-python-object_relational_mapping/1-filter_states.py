@@ -13,7 +13,8 @@ def getData_from_mysql(user, pw, database):
 
     host = "localhost"
 
-    sql_query = "SELECT id, name FROM states WHERE name LIKE BINARY 'N%' ORDER BY id;"
+    sql_query = "SELECT id, name FROM states "
+    sql_query += "WHERE name LIKE BINARY 'N%' ORDER BY id;"
 
     try:
         db = MySQLdb.connect(host=host, port=3306,
