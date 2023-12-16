@@ -19,7 +19,7 @@ def get_state_with_city(user, pw, db_name):
         engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                                .format(user, pw, db_name), pool_pre_ping=True)
 
-        Base.metadata.create_all(eng)
+        Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
 
