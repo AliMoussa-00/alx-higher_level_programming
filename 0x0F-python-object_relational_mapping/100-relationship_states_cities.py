@@ -44,11 +44,8 @@ if __name__ == "__main__":
         pw = argv[2]
         db_name = argv[3]
 
-        city_obj_1 = City(name="San Francisco")
-        city_obj_2 = City(name="San Padro")
-        city_obj_3 = City(name="San Coco")
+        city_obj = City(name="San Francisco")
 
-        state_obj = State(name="California",
-                          cities=[city_obj_1, city_obj_2, city_obj_3])
+        state_obj = State(name="California", cities=[city_obj])
 
         create_state_with_city(user, pw, db_name, state_obj)
