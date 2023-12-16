@@ -8,15 +8,14 @@ import MySQLdb
 from sys import argv
 
 
-def getData_from_mysql(user, pw, database):
-    """Implementing getting data from MySQL DB"""
+if __name__ == "__main__":
 
     host = "localhost"
 
     sql_query = "SELECT id, name FROM states WHERE name like 'N%' ORDER BY id;"
 
     db = MySQLdb.connect(
-            host=host, port=3306, user=user, password=pw, db=database)
+            host=host, port=3306, user=argv[1], password=argv[2], db=argv[3])
 
     cursor = db.cursor()
 
@@ -29,9 +28,3 @@ def getData_from_mysql(user, pw, database):
 
     cursor.close()
     db.close()
-
-
-if __name__ == "__main__":
-    if (len(argv) >= 4):
-
-        getData_from_mysql(argv[1], argv[2], argv[3])
