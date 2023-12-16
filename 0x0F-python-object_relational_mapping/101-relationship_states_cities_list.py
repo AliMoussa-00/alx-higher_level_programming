@@ -8,8 +8,6 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
 
-from sqlalchemy.orm import joinedload
-
 from sys import argv
 from relationship_state import Base, State
 from relationship_city import City
@@ -27,7 +25,7 @@ def get_state_with_city(user, pw, db_name):
 
         try:
 
-            res = session.query(State).all()
+            res = session.query(State).outerjoin(City).all()
 
             if res:
 
