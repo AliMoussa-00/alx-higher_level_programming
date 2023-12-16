@@ -23,7 +23,7 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        states = session.query(State).filter(State.name.contain('a'))
+        states = session.query(State).filter(State.name.contain('a')).all()
 
         if states:
             for state in states:
