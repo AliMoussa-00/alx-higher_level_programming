@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """
+ a script that lists all City objects from the database hbtn_0e_101_usa
 """
 
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
-
-from sqlalchemy.orm import joinedload
 
 from sys import argv
 from relationship_state import Base, State
@@ -14,6 +13,7 @@ from relationship_city import City
 
 
 def get_state_with_city(user, pw, db_name):
+    """get states"""
     try:
         engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                                .format(user, pw, db_name), pool_pre_ping=True)
