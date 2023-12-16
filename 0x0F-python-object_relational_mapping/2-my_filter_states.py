@@ -14,7 +14,7 @@ def getData_from_mysql(user, pw, database, name_param):
     host = "localhost"
 
     sql_query = "SELECT id, name FROM states "
-    sql_query += "WHERE name = '{}' ORDER BY id;".format(name_param)
+    sql_query += "WHERE name LIKE BINARY '{}' ORDER BY id;".format(name_param)
 
     db = MySQLdb.connect(host=host, port=3306,
                          user=user, password=pw, db=database)
