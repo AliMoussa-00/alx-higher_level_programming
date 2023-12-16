@@ -16,6 +16,7 @@ from relationship_city import City
 
 
 def get_state_with_city(user, pw, db_name):
+    """get states with their cities"""
     try:
         engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                                .format(user, pw, db_name), pool_pre_ping=True)
@@ -25,7 +26,8 @@ def get_state_with_city(user, pw, db_name):
 
         try:
 
-            res = session.query(State).options(joinedload(State.cities)).all()
+            res = session.query(State).options(joinedload(State.cities))
+            .order_by(State.id, City.id).all()
 
             if res:
 
