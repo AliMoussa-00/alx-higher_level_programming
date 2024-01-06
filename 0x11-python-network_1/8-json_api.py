@@ -13,8 +13,10 @@ def request_json(url, letter):
     r = requests.post(url, data={'q': letter})
 
     try:
-        if len(r.json()) > 0:
-            print(r.json())
+        data = r.json()
+        if len(data) > 0:
+
+            print(f"[{data.get('id')}] {data.get('name')}")
         else:
             print("No result")
 
