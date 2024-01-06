@@ -17,7 +17,7 @@ def request_exception(url):
             print(response.read().decode('utf-8'))
 
     except HTTPError as e:
-        print('Error code: ', e.code)
+        print(f'Error code: {e.code}')
 
 
 if __name__ == "__main__":
