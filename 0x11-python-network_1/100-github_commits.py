@@ -19,9 +19,9 @@ def request_github_commits(repo, owner):
 
         # print(data[0])
 
-        for com in data:
-            sha = com.get('sha')
-            author = com.get('commit').get('author').get('name')
+        for i in range(0, 10):
+            sha = data[i].get('sha')
+            author = data[i].get('commit').get('author').get('name')
             print(f"{sha}: {author}")
 
     except Exception:
