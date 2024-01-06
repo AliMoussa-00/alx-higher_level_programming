@@ -1,16 +1,15 @@
-#!//usr/bin/python3
+#!/usr/bin/python3
 """a Python script that fetches https://alx-intranet.hbtn.io/status"""
 
-# from urllib.request import Request, urlopen
-import urllib.request
+from urllib.request import Request, urlopen
 
 
 def fetch_url(url):
     """defining the function to fetch url"""
 
-    req = urllib.request.Request(url)
+    req = Request(url)
 
-    with urllib.request.urlopen(req) as response:
+    with urlopen(req) as response:
         body = response.read()
 
         print("Body response:")

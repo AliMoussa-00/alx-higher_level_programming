@@ -1,4 +1,4 @@
-#!//usr/bin/python3
+#!/usr/bin/python3
 """
 sends a POST request to url with the letter as a parameter.
 """
