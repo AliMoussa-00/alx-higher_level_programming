@@ -14,13 +14,13 @@ def request_json(url, letter):
 
     try:
         data = r.json()
-        if len(data) > 0:
+        if data:
 
             print(f"[{data.get('id')}] {data.get('name')}")
         else:
             print("No result")
 
-    except requests.exceptions.JSONDecodeError:
+    except (requests.exceptions.JSONDecodeError, Exception):
         print("Not a valid JSON")
 
 

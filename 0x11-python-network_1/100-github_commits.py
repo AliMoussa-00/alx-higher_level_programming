@@ -24,7 +24,7 @@ def request_github_commits(repo, owner):
             author = com.get('commit').get('author').get('name')
             print(f"{sha}: {author}")
 
-    except requests.exceptions.JSONDecodeError:
+    except (requests.exceptions.JSONDecodeError, Exception):
         pass
 
 
