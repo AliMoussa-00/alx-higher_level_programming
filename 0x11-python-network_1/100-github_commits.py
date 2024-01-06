@@ -25,7 +25,7 @@ def request_github_commits(repo, owner):
             print(f"{sha}: {author}")
 
     except requests.exceptions.JSONDecodeError:
-        print(None)
+        pass
 
 
 if __name__ == "__main__":
