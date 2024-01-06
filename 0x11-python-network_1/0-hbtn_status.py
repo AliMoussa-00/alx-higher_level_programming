@@ -17,8 +17,7 @@ def fetch_url(url):
         print(f"\t- type: {type(body)}")
         print(f"\t- content: {body}")
 
-        t = 'OK' if response.info().get_content_charset() == "utf-8" else 'NO'
-        print(f"\t- utf8 content: {t}")
+        print(f"\t- utf8 content: {body.decode('utf-8')}")
 
 
 if __name__ == "__main__":
