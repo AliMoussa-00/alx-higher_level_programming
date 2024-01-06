@@ -19,12 +19,12 @@ def request_github_commits(repo, owner):
 
         # print(data[0])
 
-        for i in range(10):
-            sha = data[i].get('sha')
-            author = data[i].get('commit').get('author').get('name')
+        for com in data:
+            sha = com.get('sha')
+            author = com.get('commit').get('author').get('name')
             print(f"{sha}: {author}")
 
-    except (requests.exceptions.JSONDecodeError, Exception):
+    except Exception:
         pass
 
 

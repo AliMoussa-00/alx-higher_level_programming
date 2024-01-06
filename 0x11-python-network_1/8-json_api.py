@@ -20,7 +20,7 @@ def request_json(url, letter):
         else:
             print("No result")
 
-    except (requests.exceptions.JSONDecodeError, Exception):
+    except Exception:
         print("Not a valid JSON")
 
 
