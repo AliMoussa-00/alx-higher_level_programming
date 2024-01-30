@@ -8,9 +8,7 @@ if (argv.length >= 3) {
 
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
-      throw (err);
-    }
-
-    console.log(data);
+      console.error(err);
+    } else console.log(data.toString());
   });
 }
