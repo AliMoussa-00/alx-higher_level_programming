@@ -1,6 +1,6 @@
 $.get(
-  "https://swapi-api.alx-tools.com/api/people/5/?format=json",
+  'https://swapi-api.alx-tools.com/api/people/5/?format=json',
   function (response) {
-    $("#character").text(response.name);
+    $('#character').text(response.name);
   }
 );
